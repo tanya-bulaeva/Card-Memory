@@ -1,0 +1,92 @@
+@font-face {
+    font-family: 'StratosSkyeng';
+    src: url('fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-light.woff');
+}
+body {
+    font-family: 'StratosSkyeng';
+    background-color: #004980;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #C2F5FF;
+    width: 480px;
+    height: 459px;
+    margin-top: 158px;
+    margin-right: calc(50% - 240px);
+    margin-left: calc(50% - 240px);
+    border-radius: 12px;
+          &__title {
+     color: #004980;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+
+    &-box{
+        width: 208px;
+    height: 96px;
+    padding-top: 53px;
+        }
+    }
+
+}
+
+
+.game-choice__box{
+    display: flex;
+gap: 25px;
+align-items: center;
+padding-top: 48px;
+
+}
+.choice__box{
+    background-color: white;
+    width: 98px;
+    height: 98px;
+    border-radius: 15px;
+    text-align: center;
+    color: #0080C1;
+    font-size: 64px;
+    font-weight: bold;
+    line-height: 72px;
+    border: none;
+    &:hover{
+       outline: 3px solid #004980;
+      }
+      
+
+&:active {
+    margin: 1px 1px 0;
+    box-shadow: -1px -1px 1px #000;
+}
+}
+
+.button__box{
+       padding-top: 67px; 
+}
+.button{
+    background-color: #7AC100;
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 24px;
+    line-height: 32px;
+    color: white;
+    &:hover{
+    outline: 3px solid #004980;
+    &:active {
+        margin: 1px 1px 0;
+        box-shadow: -1px -1px 1px #000;
+    }
+}
+}
