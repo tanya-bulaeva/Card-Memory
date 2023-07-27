@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'StratosSkyeng';
-    src: url('fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-light.woff');
+    src: url('fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff'),
+     url('fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff2')
 }
 body {
     font-family: 'StratosSkyeng';
@@ -13,7 +14,12 @@ body {
 a {
     text-decoration: none;
 }
-
+.conteiner{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .content {
     display: flex;
     flex-direction: column;
@@ -21,7 +27,6 @@ a {
     background-color: #C2F5FF;
     width: 480px;
     height: 459px;
-    margin-top: 158px;
     margin-right: calc(50% - 240px);
     margin-left: calc(50% - 240px);
     border-radius: 12px;
@@ -42,9 +47,6 @@ a {
 
 
 .game-choice__box{
-    display: flex;
-gap: 25px;
-align-items: center;
 padding-top: 48px;
 
 }
@@ -59,19 +61,11 @@ padding-top: 48px;
     font-weight: bold;
     line-height: 72px;
     border: none;
-    &:hover{
-       outline: 3px solid #004980;
-      }
-      
-
-&:active {
-    margin: 1px 1px 0;
-    box-shadow: -1px -1px 1px #000;
-}
 }
 
 .button__box{
-       padding-top: 67px; 
+       padding-top: 65px; 
+
 }
 .button{
     background-color: #7AC100;
@@ -89,4 +83,38 @@ padding-top: 48px;
         box-shadow: -1px -1px 1px #000;
     }
 }
+}
+
+.radio{
+    background-color: white;
+    width: 98px;
+    height: 98px;
+    border-radius: 15px;
+    text-align: center;
+    color: #0080C1;
+    font-size: 64px;
+    line-height: 72px;
+}
+.radio-toolbar{
+    display: flex;
+    gap: 25px;
+}
+.radio-toolbar input[type="radio"] {
+    display: none;
+}
+
+.radio-toolbar label {
+     display: flex;;
+     align-items: center;
+     justify-content: center;
+    border: 1px solid #DAD0FF;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+    background-color: #d0ffb7;
+    border: 1px solid #1CA92E;
+}
+.radio-toolbar label:hover {
+    background-color: #d0ffb7;
+    border: 1px solid #1CA92E;
 }
