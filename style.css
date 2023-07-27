@@ -50,19 +50,6 @@ a {
   padding-top: 48px;
 }
 
-.choice__box {
-  background-color: white;
-  width: 98px;
-  height: 98px;
-  border-radius: 15px;
-  text-align: center;
-  color: #0080C1;
-  font-size: 64px;
-  font-weight: bold;
-  line-height: 72px;
-  border: none;
-}
-
 .button__box {
   padding-top: 65px;
 }
@@ -78,14 +65,20 @@ a {
   color: white;
 }
 .button:hover {
-  outline: 3px solid #004980;
+  outline: 1px solid #004980;
 }
 .button:hover:active {
   margin: 1px 1px 0;
   box-shadow: -1px -1px 1px #000;
 }
+.button:hover__box {
+  padding-top: 65px;
+}
 
 .radio {
+  padding-top: 48px;
+}
+.radio__label {
   background-color: white;
   width: 98px;
   height: 98px;
@@ -94,29 +87,24 @@ a {
   color: #0080C1;
   font-size: 64px;
   line-height: 72px;
+  font-weight: 400px;
 }
-
 .radio-toolbar {
   display: flex;
   gap: 25px;
 }
-
 .radio-toolbar input[type=radio] {
   display: none;
 }
-
+.radio-toolbar input[type=radio]:checked + label {
+  background-color: #d0ffb7;
+  border: 1px solid #004980;
+}
 .radio-toolbar label {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #DAD0FF;
 }
-
-.radio-toolbar input[type=radio]:checked + label {
-  background-color: #d0ffb7;
-  border: 1px solid #1CA92E;
-}
-
 .radio-toolbar label:hover {
   background-color: #d0ffb7;
   border: 1px solid #1CA92E;
