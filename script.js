@@ -31,7 +31,8 @@ const renderHtml = () => {
     console.log (formEl[1]);
     console.log (formEl[2]);
 
-    formEl.addEventListener("submit",() => {
+    formEl.addEventListener("submit",(event) => {
+      event.preventDefault()
     if (formEl[0].checked) {
     appEl.innerHTML = `1 уровень сложности`;
     console.log (1)
@@ -44,7 +45,7 @@ const renderHtml = () => {
     appEl.innerHTML = `3 уровень сложности`;
     console.log (3)
     }
-    }
+     }
     )
 
 
