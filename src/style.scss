@@ -1,40 +1,47 @@
 @font-face {
-    font-family: 'StratosSkyeng';
-    src: url('fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff'),
-     url('fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff2')
+        font-family: StratosSkyeng;
+        src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff");
+        src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff2");
 }
-body {
-    font-family: 'StratosSkyeng';
-    background-color: #004980;
+
+    body{
+        font-family: StratosSkyeng, sans-serif;
+        background-color: #004980;
 }
-*{
-    margin: 0;
-    padding: 0;
+
+    *{
+        margin: 0;
+        padding: 0;
 }
-a {
-    text-decoration: none;
+
+    a {
+        text-decoration: none;
 }
+
 .conteiner{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 }
+
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #C2F5FF;
-    width: 480px;
-    height: 459px;
-    margin-right: calc(50% - 240px);
-    margin-left: calc(50% - 240px);
-    border-radius: 12px;
-          &__title {
-    color: #004980;
-    font-size: 40px;
-    line-height: 48px;
-    text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #c2f5ff;
+        width: 480px;
+        height: 459px;
+        margin-right: calc(50% - 240px);
+        margin-left: calc(50% - 240px);
+        border-radius: 12px;
+
+            &-title {
+        color: #004980;
+        font-size: 40px;
+        line-height: 48px;
+        text-align: center;
 
         &-box{
         width: 208px;
@@ -45,62 +52,79 @@ a {
 
 }
 
+.game-choice-box{
+        padding-top: 48px;
 
-.game-choice__box{
-    padding-top: 48px;
+}
+
+.button-box{
+        padding-top: 65px; 
 
 }
 
-.button__box{
-    padding-top: 65px; 
-
-}
 .start-button{
-    background-color: #7AC100;
-    width: 246px;
-    height: 50px;
-    border-radius: 12px;
-    border: none;
-    font-size: 24px;
-    line-height: 32px;
-    color: white;
-    &:hover{
-    outline: 1px solid #004980;
-    &:active {
-        margin: 1px 1px 0;
-        box-shadow: -1px -1px 1px #000;
-    }
+        background-color: #7ac100;
+        width: 246px;
+        height: 50px;
+        border-radius: 12px;
+        border: none;
+        font-size: 24px;
+        line-height: 32px;
+        color: white;
+
+        &:hover{
+        outline: 1px solid #004980;
+
+        &:active {
+            margin: 1px 1px 0;
+            box-shadow: -1px -1px 1px #000;
+        }
 }
 }
 
 .game-difficulty{
-    padding-top: 48px; 
-    display: flex;
+        padding-top: 48px; 
+        display: flex;
 }
+
 .input-form{
-    display: flex;
-    gap: 25px;
+        display: flex;
+        gap: 25px;
 
 }
 
 .radio{
-      &__label{
+
+    & label {
+        display: flex;;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background-color: #d0ffb7;
+            border: 1px solid #1ca92e;
+        }
+        }
+
+      &-label{
         background-color: white;
         width: 98px;
         height: 98px;
         border-radius: 15px;
         text-align: center;
-        color: #0080C1;
+        color: #0080c1;
         font-size: 64px;
         line-height: 72px;
         font-weight: 400px;
     }
-    &-toolbar{
-    display: flex;
-    gap: 25px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+        &-toolbar{
+        display: flex;
+        gap: 25px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
         & input[type="radio"] {
         display: none;
 
@@ -110,14 +134,68 @@ a {
                     }
          }
 
-        & label {
-        display: flex;;
-        align-items: center;
-        justify-content: center;
-        &:hover {
-            background-color: #d0ffb7;
-            border: 1px solid #1CA92E;
+
+    }
+}
+
+.timer{
+        margin-top: 10px;
+        width: 155px;
+        height: 91px;
+        border: 3px solid black;
+        color: white;
+
+    &-duration{
+        font-weight: 400;
+        font-size: 64px;
+        line-height: 72px;
+    }
+    &-header{
+        display: flex;
+        font-size: 16px;
+        color: white;
+        justify-content: space-around;
+
+        &-min{
+        width: 28px;
+        height: 32px;
         }
+
+        &-sek{
+            width: 28px;
+            height: 32px;          
         }
     }
+
+}
+
+.button-restart{
+        width: 246px ;
+        height: 50px;
+        background-color:#7ac100 ;
+        border-radius: 12px;
+        color: white;
+        font-size: 24px;
+        font-weight: 400px;
+        line-height: 32px;
+        text-align: center;
+        border: none;
+}
+
+.header{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-left: 10px;
+
+}
+
+.game-field{
+        display: grid;
+        grid-template-columns: repeat(9, 95px);
+        grid-template-rows: repeat(4, 133px);
+        gap: 15px;
+        margin-top: 43px;
+        margin-left: 25px;
+
 }

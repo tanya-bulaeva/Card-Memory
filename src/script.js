@@ -1,20 +1,20 @@
 const renderHtml = () => {
     const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
-                <div class = "content__title-box">
-                <h1 class = "content__title"> Выбери сложность</h1>
+                <div class = "content-title-box">
+                <h1 class = "content-title"> Выбери сложность</h1>
             </div>
                 <div class = "game-difficulty" id = "game-form" >
                 <form class = "radio-toolbar"  id = "form">           
                  <div class = "input-form">
                    <input type="radio" id="radio1" name="radios" value="1">
-                    <label class = "radio__label" for="radio1">1</label>
+                    <label class = "radio-label" for="radio1">1</label>
                     <input type="radio" id="radio2" name="radios" value="2">
-                    <label  class = "radio__label" for="radio2">2</label>
+                    <label  class = "radio-label" for="radio2">2</label>
                     <input type="radio" id="radio3" name="radios" value="3">
-                    <label class = "radio__label" for="radio3">3</label>
+                    <label class = "radio-label" for="radio3">3</label>
              </div>
-                <div class = "button__box"> 
+                <div class = "button-box"> 
                  <button class = "start-button">Старт</button></div>
                </form> 
             </div>
@@ -40,11 +40,3 @@ const renderHtml = () => {
     });
 };
 renderHtml();
-
-const add = (a, b) => {
-
-    if (a == b){
-
-    }
-    return a + b + ""
-}
