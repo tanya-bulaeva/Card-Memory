@@ -1,6 +1,6 @@
-import { renderGameField } from "../src/main.js";
+//import { renderGameField } from "../src/main.js";
 
-export const renderStartHtml = () => {
+/*export const renderStartHtml = () => {
     const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
@@ -45,3 +45,4 @@ export const renderStartHtml = () => {
         }
     });
 };
+*/

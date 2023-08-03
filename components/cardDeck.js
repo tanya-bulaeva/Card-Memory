@@ -1,4 +1,4 @@
-export const cardDeck = `     <div class = "game-field">
+/*export const cardDeck = `     <div class = "game-field">
 <div class ="memory-card">
    <img class = "front-face" src="./src/cards-img/front-card img/туз пики.jpg" alt="туз пики">          
 <img class = "back-face" src="./src/cards-img/back.jpg" alt="рубашка">
@@ -147,4 +147,4 @@ export const cardDeck = `     <div class = "game-field">
         <img class = "back-face" src="./src/cards-img/back.jpg" alt="рубашка">
            </div>
 </div>  
-`
+`*/
