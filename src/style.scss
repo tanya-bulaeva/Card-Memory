@@ -1,102 +1,98 @@
 @font-face {
-        font-family: StratosSkyeng;
-        src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff");
-        src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff2");
+    font-family: StratosSkyeng;
+    src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff");
+    src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff2");
 }
 
-    body{
-        font-family: StratosSkyeng, sans-serif;
-        background-color: #004980;
+body {
+    font-family: StratosSkyeng, sans-serif;
+    background-color: #004980;
 }
 
-    *{
-        margin: 0;
-        padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-    a {
-        text-decoration: none;
+a {
+    text-decoration: none;
 }
 
-.conteiner{
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+.conteiner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #c2f5ff;
-        width: 480px;
-        height: 459px;
-        margin-right: calc(50% - 240px);
-        margin-left: calc(50% - 240px);
-        border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #c2f5ff;
+    width: 480px;
+    height: 459px;
+    margin-right: calc(50% - 240px);
+    margin-left: calc(50% - 240px);
+    border-radius: 12px;
 
-            &-title {
+    &-title {
         color: #004980;
         font-size: 40px;
         line-height: 48px;
         text-align: center;
+        font-weight: 400;
 
-        &-box{
-        width: 208px;
-        height: 96px;
-        padding-top: 53px;
-            }
+        &-box {
+            width: 208px;
+            height: 96px;
+            padding-top: 53px;
+        }
     }
-
 }
 
-.game-choice-box{
-        padding-top: 48px;
-
+.game-choice-box {
+    padding-top: 48px;
 }
 
-.button-box{
-        padding-top: 65px; 
-
+.button-box {
+    padding-top: 41px;
 }
 
-.start-button{
-        background-color: #7ac100;
-        width: 246px;
-        height: 50px;
-        border-radius: 12px;
-        border: none;
-        font-size: 24px;
-        line-height: 32px;
-        color: white;
+.start-button {
+    background-color: #7ac100;
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    font-size: 24px;
+    line-height: 32px;
+    color: white;
 
-        &:hover{
+    &:hover {
         outline: 1px solid #004980;
 
         &:active {
             margin: 1px 1px 0;
             box-shadow: -1px -1px 1px #000;
         }
-}
-}
-
-.game-difficulty{
-        padding-top: 48px; 
-        display: flex;
+    }
 }
 
-.input-form{
-        display: flex;
-        gap: 25px;
-
+.game-difficulty {
+    padding-top: 48px;
+    display: flex;
 }
 
-.radio{
+.input-form {
+    display: flex;
+    gap: 25px;
+}
 
+.radio {
     & label {
-        display: flex;;
+        display: flex;
         align-items: center;
         justify-content: center;
 
@@ -104,9 +100,9 @@
             background-color: #d0ffb7;
             border: 1px solid #1ca92e;
         }
-        }
+    }
 
-      &-label{
+    &-label {
         background-color: white;
         width: 98px;
         height: 98px;
@@ -114,11 +110,11 @@
         text-align: center;
         color: #0080c1;
         font-size: 64px;
-        line-height: 72px;
-        font-weight: 400px;
+        line-height: 96px;
+        font-weight: 400;
     }
 
-        &-toolbar{
+    &-toolbar {
         display: flex;
         gap: 25px;
         flex-direction: column;
@@ -126,76 +122,97 @@
         justify-content: center;
 
         & input[type="radio"] {
-        display: none;
+            display: none;
 
-            &:checked+label {
+            &:checked + label {
                 background-color: #d0ffb7;
                 border: 1px solid #004980;
-                    }
-         }
-
-
+            }
+        }
     }
 }
 
-.timer{
-        margin-top: 10px;
-        width: 155px;
-        height: 91px;
-        border: 3px solid black;
-        color: white;
+.timer {
+    width: 155px;
+    height: 91px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-    &-duration{
+    &-duration {
         font-weight: 400;
         font-size: 64px;
         line-height: 72px;
     }
-    &-header{
+
+    &-header {
         display: flex;
         font-size: 16px;
         color: white;
         justify-content: space-around;
-
-        &-min{
-        width: 28px;
-        height: 32px;
-        }
-
-        &-sek{
-            width: 28px;
-            height: 32px;          
-        }
     }
-
 }
 
-.button-restart{
-        width: 246px ;
-        height: 50px;
-        background-color:#7ac100 ;
-        border-radius: 12px;
-        color: white;
-        font-size: 24px;
-        font-weight: 400px;
-        line-height: 32px;
-        text-align: center;
-        border: none;
+.button-restart {
+    width: 246px;
+    height: 50px;
+    background-color: #7ac100;
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: center;
+    border: none;
 }
 
-.header{
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        margin-left: 10px;
-
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 568px;
 }
 
-.game-field{
-        display: grid;
-        grid-template-columns: repeat(9, 95px);
-        grid-template-rows: repeat(4, 133px);
-        gap: 15px;
-        margin-top: 43px;
-        margin-left: 25px;
+.game-field {
+    display: grid;
+    grid-template-columns: repeat(9, 94px);
+    grid-template-rows: repeat(4, 133px);
+    gap: 10px 15px;
+    flex-wrap: wrap;
+    margin-top: 27px;
+    perspective: 1000px;
+}
 
+.game-conteiner {
+    justify-content: flex-start;
+}
+
+.memory-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: scale(1);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 4px;
+    backface-visibility: hidden;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face {
+    transform: rotateY(180deg);
 }

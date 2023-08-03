@@ -3,6 +3,7 @@
     "plugins": ["stylelint-prettier"],
     "rules": {
       "prettier/prettier": true,
+    
       "font-family-no-missing-generic-family-keyword": [
         true,
         {

@@ -1,4 +1,6 @@
-const renderHtml = () => {
+import { renderGameField } from "../src/main.js";
+
+export const renderStartHtml = () => {
     const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
@@ -25,18 +27,21 @@ const renderHtml = () => {
     console.log(formEl[2]);
     formEl.addEventListener("submit", (event) => {
         event.preventDefault();
+
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
+            renderGameField();
         }
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
+            renderGameField();
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
+            renderGameField();
         }
     });
 };
-renderHtml();
