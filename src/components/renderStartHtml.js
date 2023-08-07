@@ -1,6 +1,6 @@
-//import { renderGameField } from "../src/main.js";
-
-/*export const renderStartHtml = () => {
+import { renderGame } from "./renderGame.js";
+import { renderGameField } from "./renderGameField.js";
+export const renderStartHtml = () => {
     const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
@@ -9,11 +9,11 @@
                 <div class = "game-difficulty" id = "game-form" >
                 <form class = "radio-toolbar"  id = "form">           
                  <div class = "input-form">
-                   <input type="radio" id="radio1" name="radios" value="1">
+                   <input type="radio" id="radio1" name="level" value="6" class = "level">
                     <label class = "radio-label" for="radio1">1</label>
-                    <input type="radio" id="radio2" name="radios" value="2">
+                    <input type="radio" id="radio2" name="level" value="12" class = "level">
                     <label  class = "radio-label" for="radio2">2</label>
-                    <input type="radio" id="radio3" name="radios" value="3">
+                    <input type="radio" id="radio3" name="level" value="18" class ="level">
                     <label class = "radio-label" for="radio3">3</label>
              </div>
                 <div class = "button-box"> 
@@ -22,16 +22,13 @@
             </div>
     `;
     const formEl = document.getElementById("form");
-    console.log(formEl[0]);
-    console.log(formEl[1]);
-    console.log(formEl[2]);
     formEl.addEventListener("submit", (event) => {
         event.preventDefault();
 
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
-            renderGameField();
+            renderGame();
         }
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
@@ -45,4 +42,3 @@
         }
     });
 };
-*/

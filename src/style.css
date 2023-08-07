@@ -1,7 +1,7 @@
 @font-face {
     font-family: StratosSkyeng;
-    src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff");
-    src: url("fonts/statosskyeng-v1.001/Web fonts/stratosskyengweb-regular.woff2");
+    src: url("../static/fonts/statosskyeng-v1.001/stratosskyengweb-regular.woff");
+    src: url("../static/fonts/statosskyeng-v1.001/stratosskyengweb-regular.woff");
 }
 
 body {
@@ -195,8 +195,6 @@ a {
 
 .front-face,
 .back-face {
-    width: 100%;
-    height: 100%;
     position: absolute;
     border-radius: 4px;
     backface-visibility: hidden;
@@ -213,4 +211,4 @@ a {
 
 .front-face {
     transform: rotateY(180deg);
-}/*# sourceMappingURL=style.css.map */
+}
