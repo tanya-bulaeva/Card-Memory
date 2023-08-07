@@ -1,5 +1,5 @@
 import { renderGame } from "./renderGame.js";
-import { renderGameField } from "./renderGameField.js";
+
 export const renderStartHtml = () => {
     const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
@@ -9,11 +9,11 @@ export const renderStartHtml = () => {
                 <div class = "game-difficulty" id = "game-form" >
                 <form class = "radio-toolbar"  id = "form">           
                  <div class = "input-form">
-                   <input type="radio" id="radio1" name="level" value="6" class = "level">
+                   <input type="radio" id="radio1" name="level" value="6" class = "easy-level">
                     <label class = "radio-label" for="radio1">1</label>
-                    <input type="radio" id="radio2" name="level" value="12" class = "level">
+                    <input type="radio" id="radio2" name="level" value="12" class = "medium-level">
                     <label  class = "radio-label" for="radio2">2</label>
-                    <input type="radio" id="radio3" name="level" value="18" class ="level">
+                    <input type="radio" id="radio3" name="level" value="18" class ="hard-level">
                     <label class = "radio-label" for="radio3">3</label>
              </div>
                 <div class = "button-box"> 
@@ -33,12 +33,12 @@ export const renderStartHtml = () => {
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
-            renderGameField();
+            renderGame();
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
-            renderGameField();
+            renderGame();
         }
     });
 };

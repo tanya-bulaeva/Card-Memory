@@ -1,8 +1,8 @@
 import { cardDeck } from "./cardDeck.js";
+
 export function renderGameField() {
-    let cardDeckDouble1 = cardDeck;
-    let cardDeckDouble2 = cardDeck;
-    let cardArray = cardDeckDouble1.concat(cardDeckDouble2);
+    let cardsDeck = cardDeck;
+    let dublicateCardArray = cardsDeck.concat(cardsDeck);
 
     const appEl = document.getElementById("app");
     const headerGame = `    <div class = "header">
@@ -19,6 +19,5 @@ export function renderGameField() {
 </div>`;
 
     appEl.innerHTML = `
-    ${headerGame} 
-    ${cardArray}`;
+    ${headerGame} ${dublicateCardArray.join("")}`;
 }

@@ -4,8 +4,7 @@ export const cardDeck = [
    <img class = "front-face" src="static/cards-img/front-card img/туз пики.jpg" alt="туз пики">          
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
    </div>
-     <div class ="memory-card" data-index ="
-     ">
+     <div class ="memory-card" data-index ="king-spades">
        <img class = "front-face" src="static/cards-img/front-card img/король пики.jpg" alt="король пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
    </div>
@@ -148,5 +147,6 @@ export const cardDeck = [
                <img class = "front-face" src="static/cards-img/front-card img/6 крести.jpg" alt="6 крести"> 
         <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
            </div>
-</div>  `,
+</div>  
+`,
 ];

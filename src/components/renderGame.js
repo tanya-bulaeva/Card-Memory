@@ -4,6 +4,7 @@ export let cards = document.querySelectorAll(".memory-card");
 
 export const renderGame = () => {
     renderGameField();
+
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
@@ -37,7 +38,7 @@ export const renderGame = () => {
             firstCard.removeEventListener("click", flipCard);
             secondCard.removeEventListener("click", flipCard);
             resetBoard();
-            alert("Вы победили!");
+            //   alert("Вы победили!");
         }, 1000);
     }
 
@@ -46,7 +47,7 @@ export const renderGame = () => {
             firstCard.classList.remove("flip");
             secondCard.classList.remove("flip");
             resetBoard();
-            alert("Вы проиграли!");
+            //     alert("Вы проиграли!");
         }, 1000);
     }
 

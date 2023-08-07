@@ -149,6 +149,7 @@ a {
     &-header {
         display: flex;
         font-size: 16px;
+        font-weight: 400;
         color: white;
         justify-content: space-around;
     }
@@ -181,7 +182,7 @@ a {
     grid-template-rows: repeat(4, 133px);
     gap: 10px 15px;
     flex-wrap: wrap;
-    margin-top: 27px;
+    margin-top: 10px;
     perspective: 1000px;
 }
 
