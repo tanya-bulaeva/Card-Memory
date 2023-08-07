@@ -180,6 +180,88 @@ const cardDeck = [
 
 /***/ }),
 
+/***/ "./src/components/renderGame.js":
+/*!**************************************!*\
+  !*** ./src/components/renderGame.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cards: () => (/* binding */ cards),
+/* harmony export */   renderGame: () => (/* binding */ renderGame)
+/* harmony export */ });
+/* harmony import */ var _renderGameField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGameField.js */ "./src/components/renderGameField.js");
+
+
+let cards = document.querySelectorAll(".memory-card");
+
+const renderGame = () => {
+    (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();
+    const cards = document.querySelectorAll(".memory-card");
+    let hasFlippedCard = false;
+    let lockBoard = false;
+    let firstCard, secondCard;
+
+    function flipCard() {
+        if (lockBoard) return;
+        if (this === firstCard) return;
+
+        this.classList.add("flip");
+
+        if (!hasFlippedCard) {
+            hasFlippedCard = true;
+            firstCard = this;
+            return;
+        }
+
+        secondCard = this;
+        lockBoard = true;
+
+        checkForMatch();
+    }
+
+    function checkForMatch() {
+        let isMatch = firstCard.dataset.index === secondCard.dataset.index;
+        isMatch ? disableCards() : unflipCards();
+    }
+
+    function disableCards() {
+        setTimeout(() => {
+            firstCard.removeEventListener("click", flipCard);
+            secondCard.removeEventListener("click", flipCard);
+            resetBoard();
+            alert("Вы победили!");
+        }, 1000);
+    }
+
+    function unflipCards() {
+        setTimeout(() => {
+            firstCard.classList.remove("flip");
+            secondCard.classList.remove("flip");
+            resetBoard();
+            alert("Вы проиграли!");
+        }, 1000);
+    }
+
+    function resetBoard() {
+        [hasFlippedCard, lockBoard] = [false, false];
+        [firstCard, secondCard] = [null, null];
+    }
+
+    (function shuffle() {
+        cards.forEach((card) => {
+            let ramdomPos = Math.floor(Math.random() * 12);
+            card.style.order = ramdomPos;
+        });
+    })();
+
+    cards.forEach((card) => card.addEventListener("click", flipCard));
+};
+
+
+/***/ }),
+
 /***/ "./src/components/renderGameField.js":
 /*!*******************************************!*\
   !*** ./src/components/renderGameField.js ***!
@@ -193,12 +275,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardDeck.js */ "./src/components/cardDeck.js");
 
 function renderGameField() {
+    let cardDeckDouble1 = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
+    let cardDeckDouble2 = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
+    let cardArray = cardDeckDouble1.concat(cardDeckDouble2);
 
-let cardDeckDouble1 = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
-let cardDeckDouble2 = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
-let cardArray = cardDeckDouble1.concat(cardDeckDouble2); 
-
-const appEl = document.getElementById("app");
+    const appEl = document.getElementById("app");
     const headerGame = `    <div class = "header">
 <div class = "timer">
     <div class = "timer-header"> 
@@ -212,8 +293,7 @@ const appEl = document.getElementById("app");
 </div>
 </div>`;
 
-
-appEl.innerHTML = `
+    appEl.innerHTML = `
     ${headerGame} 
     ${cardArray}`;
 }
@@ -231,10 +311,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   renderStartHtml: () => (/* binding */ renderStartHtml)
 /* harmony export */ });
-/* harmony import */ var _renderGameField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGameField.js */ "./src/components/renderGameField.js");
-//import { renderGame } from "./renderGame.js";
+/* harmony import */ var _renderGame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGame.js */ "./src/components/renderGame.js");
+/* harmony import */ var _renderGameField_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderGameField.js */ "./src/components/renderGameField.js");
 
-//export const renderStartHtml = (renderGameField) => {
+
 const renderStartHtml = () => {
     const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
@@ -263,20 +343,18 @@ const renderStartHtml = () => {
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
-            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();//поменять на рендер гейм
+            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)();
         }
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
-            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();
-            //поменять на рендер гейм
+            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_1__.renderGameField)();
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
-            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();//поменять на рендер гейм
+            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_1__.renderGameField)();
         }
-
     });
 };
 
@@ -353,7 +431,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_components_renderStartHtml__WEBPACK_IMPORTED_MODULE_1__.renderStartHtml)();
-
 
 })();
 
