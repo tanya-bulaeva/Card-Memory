@@ -1,9 +1,20 @@
 import { renderGameField } from "./renderGameField.js";
-
 export let cards = document.querySelectorAll(".memory-card");
+//let min = 0;
+//min = min < 10 ? "0" + min : min;
+//let sek = 0;
+//sek = sek < 10 ? "0" + sek : sek;
+let countDownDate = new Date().getTime();
+let now = new Date().getTime();
+let distance = countDownDate - now;
+export let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+min = min < 10 ? "0" + min : min;
+export let sec = Math.floor((distance % (1000 * 60)) / 1000);
+sec = sec < 10 ? "0" + sec : sec;
 
 export const renderGame = () => {
     renderGameField();
+
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;

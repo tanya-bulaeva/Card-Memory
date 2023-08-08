@@ -1,6 +1,6 @@
 import { cardDeck } from "./cardDeck.js";
 import { renderStartHtml } from "./renderStartHtml.js";
-
+import { min, sec } from "./renderGame.js";
 export function renderGameField() {
     let cardsDeck = cardDeck;
     let dublicateCardArray = cardsDeck.concat(cardsDeck);
@@ -12,7 +12,7 @@ export function renderGameField() {
         <div class = "timer-header-min" id = "min">min</div>
         <div class = "timer-header-sek" id = "sek">sek</div>
     </div>
-    <div class = "timer-duration"><span id="minutes">00</span>.<span id="seconds">00</span></div>
+    <div class = "timer-duration" id = "timer"><span id="min">${min}</span>.<span id="sec">${sec}</span></div>
 </div>
 <div class = "restart">
     <button class = "button-restart" id = "reset">Начать заново</button>
@@ -42,5 +42,6 @@ export function renderGameField() {
         renderStartHtml();
     });
 }
+
 //if ? <img  class = "img" src = "./static/celebration.png"> : <img  class = "img" src = "./static/dead.png">
 //if ? <h1 class = "content-title">Вы выиграли!</h1>:<h1 class = "content-title">Вы проиграли!</h1>

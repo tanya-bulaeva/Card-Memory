@@ -189,12 +189,24 @@ const cardDeck = [
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   cards: () => (/* binding */ cards),
-/* harmony export */   renderGame: () => (/* binding */ renderGame)
+/* harmony export */   min: () => (/* binding */ min),
+/* harmony export */   renderGame: () => (/* binding */ renderGame),
+/* harmony export */   sec: () => (/* binding */ sec)
 /* harmony export */ });
 /* harmony import */ var _renderGameField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGameField.js */ "./src/components/renderGameField.js");
 
-
 let cards = document.querySelectorAll(".memory-card");
+//let min = 0;
+//min = min < 10 ? "0" + min : min;
+//let sek = 0;
+//sek = sek < 10 ? "0" + sek : sek;
+let countDownDate = new Date().getTime();
+let now = new Date().getTime();
+let distance = countDownDate - now;
+let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+min = min < 10 ? "0" + min : min;
+let sec = Math.floor((distance % (1000 * 60)) / 1000);
+sec = sec < 10 ? "0" + sec : sec;
 
 const renderGame = () => {
     (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();
@@ -203,22 +215,35 @@ const renderGame = () => {
     let hasFlippedCard = false;
     let lockBoard = false;
     let firstCard, secondCard;
+    /*function flipCard() {
+    this.classList.add("flip");
+    }*/
+    //показать все карты
+    function showAll() {
+        for (let el of cards) {
+            el.classList.add("flip");
+        }
+    }
 
+    setTimeout(showAll, 1000);
+    //закрыть все карты через 5 секунд
+    function hideAll() {
+        for (let el of cards) {
+            el.classList.remove("flip");
+        }
+    }
+    setTimeout(hideAll, 5000);
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
-
         this.classList.add("flip");
-
         if (!hasFlippedCard) {
             hasFlippedCard = true;
             firstCard = this;
             return;
         }
-
         secondCard = this;
         lockBoard = true;
-
         checkForMatch();
     }
 
@@ -232,7 +257,7 @@ const renderGame = () => {
             firstCard.removeEventListener("click", flipCard);
             secondCard.removeEventListener("click", flipCard);
             resetBoard();
-            alert("Вы победили!");
+            // alert("Вы победили!");
         }, 1000);
     }
 
@@ -241,7 +266,7 @@ const renderGame = () => {
             firstCard.classList.remove("flip");
             secondCard.classList.remove("flip");
             resetBoard();
-            alert("Вы проиграли!");
+            //  alert("Вы проиграли!");
         }, 1000);
     }
 
@@ -274,6 +299,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   renderGameField: () => (/* binding */ renderGameField)
 /* harmony export */ });
 /* harmony import */ var _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardDeck.js */ "./src/components/cardDeck.js");
+/* harmony import */ var _renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderStartHtml.js */ "./src/components/renderStartHtml.js");
+/* harmony import */ var _renderGame_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./renderGame.js */ "./src/components/renderGame.js");
+
 
 
 function renderGameField() {
@@ -281,22 +309,45 @@ function renderGameField() {
     let dublicateCardArray = cardsDeck.concat(cardsDeck);
 
     const appEl = document.getElementById("app");
-    const headerGame = `    <div class = "header">
+    const headerGame = `   <div class = "header">
 <div class = "timer">
     <div class = "timer-header"> 
-        <div class = "timer-header-min">min</div>
-        <div class = "timer-header-sek">sek</div>
+        <div class = "timer-header-min" id = "min">min</div>
+        <div class = "timer-header-sek" id = "sek">sek</div>
     </div>
-    <div class = "timer-duration">00.00</div>
+    <div class = "timer-duration" id = "timer"><span id="min">${_renderGame_js__WEBPACK_IMPORTED_MODULE_2__.min}</span>.<span id="sec">${_renderGame_js__WEBPACK_IMPORTED_MODULE_2__.sec}</span></div>
 </div>
 <div class = "restart">
-    <button class = "button-restart">Начать заново</button>
+    <button class = "button-restart" id = "reset">Начать заново</button>
 </div>
+
 </div>`;
 
-    appEl.innerHTML = `
-    ${headerGame} ${dublicateCardArray.join("")}`;
+    appEl.innerHTML = `<div class = "main-field">
+    ${headerGame} ${dublicateCardArray.join("")}
+    </div>
+    <div class = "conteiner-module">
+    <div class = "content module modal" > 
+    <img  class = "img" src = "./static/celebration.png">
+    <h1 class = "content-title">Вы выиграли!</h1>
+    <h3 class = "content-title-small">Затраченное время:</h3>
+    <h3 class ="timer-duration">01.20</h3>
+    <button class = "button-restart" id = "reset-play">Играть снова </button>
+    </div></div>`;
+    console.log(dublicateCardArray);
+    const reset = document.getElementById("reset");
+    console.log(reset);
+    reset.addEventListener("click", () => {
+        (0,_renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__.renderStartHtml)();
+    });
+    const resetPlay = document.getElementById("reset-play");
+    resetPlay.addEventListener("click", () => {
+        (0,_renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__.renderStartHtml)();
+    });
 }
+
+//if ? <img  class = "img" src = "./static/celebration.png"> : <img  class = "img" src = "./static/dead.png">
+//if ? <h1 class = "content-title">Вы выиграли!</h1>:<h1 class = "content-title">Вы проиграли!</h1>
 
 
 /***/ }),

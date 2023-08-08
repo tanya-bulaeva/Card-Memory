@@ -1,10 +1,7 @@
-/* !*****************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
-  \ *****************************************************************/
 @font-face {
     font-family: StratosSkyeng;
-    src: url("d7d99bd522cf2d77ce4a.woff");
-    src: url("d7d99bd522cf2d77ce4a.woff");
+    src: url("../static/fonts/statosskyeng-v1.001/stratosskyengweb-regular.woff");
+    src: url("../static/fonts/statosskyeng-v1.001/stratosskyengweb-regular.woff");
 }
 
 body {
@@ -215,4 +212,4 @@ a {
 
 .front-face {
     transform: rotateY(180deg);
-} /*# sourceMappingURL=main.css.map*/
+}
