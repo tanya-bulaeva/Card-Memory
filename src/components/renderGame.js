@@ -11,7 +11,7 @@ export const renderGame = () => {
     /*function flipCard() {
     this.classList.add("flip");
     }*/
-
+    //показать все карты
     function showAll() {
         for (let el of cards) {
             el.classList.add("flip");
@@ -19,14 +19,13 @@ export const renderGame = () => {
     }
 
     setTimeout(showAll, 1000);
+    //закрыть все карты через 5 секунд
     function hideAll() {
         for (let el of cards) {
             el.classList.remove("flip");
         }
     }
-
     setTimeout(hideAll, 5000);
-
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
@@ -51,7 +50,7 @@ export const renderGame = () => {
             firstCard.removeEventListener("click", flipCard);
             secondCard.removeEventListener("click", flipCard);
             resetBoard();
-            alert("Вы победили!");
+            // alert("Вы победили!");
         }, 1000);
     }
 
@@ -60,7 +59,7 @@ export const renderGame = () => {
             firstCard.classList.remove("flip");
             secondCard.classList.remove("flip");
             resetBoard();
-            alert("Вы проиграли!");
+            //  alert("Вы проиграли!");
         }, 1000);
     }
 
