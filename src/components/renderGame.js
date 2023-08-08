@@ -4,27 +4,40 @@ export let cards = document.querySelectorAll(".memory-card");
 
 export const renderGame = () => {
     renderGameField();
-
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
     let firstCard, secondCard;
+    /*function flipCard() {
+    this.classList.add("flip");
+    }*/
+
+    function showAll() {
+        for (let el of cards) {
+            el.classList.add("flip");
+        }
+    }
+
+    setTimeout(showAll, 1000);
+    function hideAll() {
+        for (let el of cards) {
+            el.classList.remove("flip");
+        }
+    }
+
+    setTimeout(hideAll, 5000);
 
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
-
         this.classList.add("flip");
-
         if (!hasFlippedCard) {
             hasFlippedCard = true;
             firstCard = this;
             return;
         }
-
         secondCard = this;
         lockBoard = true;
-
         checkForMatch();
     }
 

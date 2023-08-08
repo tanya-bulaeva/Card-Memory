@@ -30,8 +30,7 @@ const cardDeck = [
    <img class = "front-face" src="static/cards-img/front-card img/туз пики.jpg" alt="туз пики">          
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
    </div>
-     <div class ="memory-card" data-index ="
-     ">
+     <div class ="memory-card" data-index ="king-spades">
        <img class = "front-face" src="static/cards-img/front-card img/король пики.jpg" alt="король пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
    </div>
@@ -174,7 +173,8 @@ const cardDeck = [
                <img class = "front-face" src="static/cards-img/front-card img/6 крести.jpg" alt="6 крести"> 
         <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
            </div>
-</div>  `,
+</div>  
+`,
 ];
 
 
@@ -198,6 +198,7 @@ let cards = document.querySelectorAll(".memory-card");
 
 const renderGame = () => {
     (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();
+
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
@@ -274,10 +275,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardDeck.js */ "./src/components/cardDeck.js");
 
+
 function renderGameField() {
-    let cardDeckDouble1 = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
-    let cardDeckDouble2 = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
-    let cardArray = cardDeckDouble1.concat(cardDeckDouble2);
+    let cardsDeck = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
+    let dublicateCardArray = cardsDeck.concat(cardsDeck);
 
     const appEl = document.getElementById("app");
     const headerGame = `    <div class = "header">
@@ -294,8 +295,7 @@ function renderGameField() {
 </div>`;
 
     appEl.innerHTML = `
-    ${headerGame} 
-    ${cardArray}`;
+    ${headerGame} ${dublicateCardArray.join("")}`;
 }
 
 
@@ -312,7 +312,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   renderStartHtml: () => (/* binding */ renderStartHtml)
 /* harmony export */ });
 /* harmony import */ var _renderGame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGame.js */ "./src/components/renderGame.js");
-/* harmony import */ var _renderGameField_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderGameField.js */ "./src/components/renderGameField.js");
 
 
 const renderStartHtml = () => {
@@ -324,11 +323,11 @@ const renderStartHtml = () => {
                 <div class = "game-difficulty" id = "game-form" >
                 <form class = "radio-toolbar"  id = "form">           
                  <div class = "input-form">
-                   <input type="radio" id="radio1" name="level" value="6" class = "level">
+                   <input type="radio" id="radio1" name="level" value="6" class = "easy-level">
                     <label class = "radio-label" for="radio1">1</label>
-                    <input type="radio" id="radio2" name="level" value="12" class = "level">
+                    <input type="radio" id="radio2" name="level" value="12" class = "medium-level">
                     <label  class = "radio-label" for="radio2">2</label>
-                    <input type="radio" id="radio3" name="level" value="18" class ="level">
+                    <input type="radio" id="radio3" name="level" value="18" class ="hard-level">
                     <label class = "radio-label" for="radio3">3</label>
              </div>
                 <div class = "button-box"> 
@@ -348,12 +347,12 @@ const renderStartHtml = () => {
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
-            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_1__.renderGameField)();
+            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)();
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
-            (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_1__.renderGameField)();
+            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)();
         }
     });
 };
