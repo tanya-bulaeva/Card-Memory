@@ -27,7 +27,6 @@ export function renderGame(size) {
 <div class = "restart">
     <button class = "button-restart" id = "reset">Начать заново</button>
 </div>
-
 </div>`;
 
     appEl.innerHTML = `<div class = "main-field">

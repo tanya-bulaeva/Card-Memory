@@ -25,156 +25,153 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   cardDeck: () => (/* binding */ cardDeck)
 /* harmony export */ });
 const cardDeck = [
-    `     <div class = "game-field">
+    `
 <div class ="memory-card" data-index ="ace-spades">
    <img class = "front-face" src="static/cards-img/front-card img/туз пики.jpg" alt="туз пики">          
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-     <div class ="memory-card" data-index ="king-spades">
+   </div>`,
+    ` <div class ="memory-card" data-index ="king-spades">
        <img class = "front-face" src="static/cards-img/front-card img/король пики.jpg" alt="король пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="queen-spades">
+   </div>`,
+    ` <div class ="memory-card" data-index ="queen-spades">
        <img class = "front-face" src="static/cards-img/front-card img/дама пики.jpg" alt="дама пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="jack-spades">
+   </div>`,
+    `<div class ="memory-card" data-index ="jack-spades">
        <img class = "front-face" src="static/cards-img/front-card img/валет пики.jpg" alt="валет пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-
-   </div>
-   <div class ="memory-card" data-index ="10-spades">
+   </div>`,
+    `<div class ="memory-card" data-index ="10-spades">
        <img class = "front-face" src="static/cards-img/front-card img/10 пики.jpg" alt="10 пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="9-spades">
+   </div>`,
+    `<div class ="memory-card" data-index ="9-spades">
        <img class = "front-face" src="static/cards-img/front-card img/9 пики.jpg" alt="9 пики"> 
   <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="8-spades">
+   </div>`,
+    `<div class ="memory-card" data-index ="8-spades">
        <img class = "front-face" src="static/cards-img/front-card img/8 пики.jpg" alt="8 пики"> 
  <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="7-spades">
+   </div>`,
+    `<div class ="memory-card" data-index ="7-spades">
        <img class = "front-face" src="static/cards-img/front-card img/7 пики.jpg" alt="7 пики"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="6-spades">
+   </div>`,
+    `<div class ="memory-card" data-index ="6-spades">
        <img class = "front-face" src="static/cards-img/front-card img/6 пики.jpg" alt="6 пики"> 
  <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="ace-hearts" >
+   </div>`,
+    `<div class ="memory-card" data-index ="ace-hearts" >
    <img class = "front-face" src="static/cards-img/front-card img/туз черви.jpg" alt="туз черви">          
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-     <div class ="memory-card" data-index ="king-hearts">
+   < /div>`,
+    `<div class ="memory-card" data-index ="king-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/король черви.jpg" alt="король черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="queen-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="queen-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/дама черви.jpg" alt="дама черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="jack-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="jack-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/валет черви.jpg" alt="валет черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="10-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="10-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/10 черви.jpg" alt="10 черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="9-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="9-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/9 черви.jpg" alt="9 черви"> 
  <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="8-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="8-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/8 черви.jpg" alt="8 черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="7-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="7-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/7 черви.jpg" alt="7 черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="6-hearts">
+   </div>`,
+    `<div class ="memory-card" data-index ="6-hearts">
        <img class = "front-face" src="static/cards-img/front-card img/6 черви.jpg" alt="6 черви"> 
 <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-   </div>
-   <div class ="memory-card" data-index ="ace-diamonds">
+   </div>`,
+    `<div class ="memory-card" data-index ="ace-diamonds">
        <img class = "front-face" src="static/cards-img/front-card img/туз бубны.jpg" alt="туз бубны">          
     <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-         <div class ="memory-card" data-index ="king-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="king-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/король бубны.jpg" alt="король бубны"> 
     <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="queen-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="queen-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/дама бубны.jpg" alt="дама бубны"> 
       <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="jack-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="jack-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/валет бубны.jpg" alt="валет бубны"> 
     <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
 
-       </div>
-       <div class ="memory-card" data-index ="10-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="10-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/10 бубны.jpg" alt="10 бубны"> 
     <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="9-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="9-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/9 бубны.jpg" alt="9 бубны"> 
       <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="8-diamonds">
+      </div>`,
+    `<div class ="memory-card" data-index ="8-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/8 бубны.jpg" alt="8 бубны"> 
       <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="7-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="7-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/7 бубны.jpg" alt="7 бубны"> 
        <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="6-diamonds">
+       </div>`,
+    `<div class ="memory-card" data-index ="6-diamonds">
            <img class = "front-face" src="static/cards-img/front-card img/6 бубны.jpg" alt="6 бубны"> 
      <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-       </div>
-       <div class ="memory-card" data-index ="ace-clubs">
+       </div>`,
+    `<div class ="memory-card" data-index ="ace-clubs">
            <img class = "front-face" src="static/cards-img/front-card img/туз крести.jpg" alt="туз крести">          
        <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-             <div class ="memory-card" data-index ="king-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="king-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/король крести.jpg" alt="король крести"> 
           <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-           <div class ="memory-card" data-index ="queen-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="queen-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/дама крести.jpg" alt="дама крести"> 
       <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-           <div class ="memory-card" data-index ="jack-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="jack-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/валет крести.jpg" alt="валет крести"> 
       <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
 
-           </div>
-           <div class ="memory-card" data-index ="10-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="10-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/10 крести.jpg" alt="10 крести"> 
        <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-           <div class ="memory-card" data-index ="9-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="9-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/9 крести.jpg" alt="9 крести"> 
          <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-           <div class ="memory-card" data-index ="8-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="8-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/8 крести.jpg" alt="8 крести"> 
         <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-           <div class ="memory-card" data-index ="7-clubs">
+           </div>`,
+    `<div class ="memory-card" data-index ="7-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/7 крести.jpg" alt="7 крести"> 
-          <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-           <div class ="memory-card" data-index ="6-clubs">
+    <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
+           </div>`,
+    `<div class ="memory-card" data-index ="6-clubs">
                <img class = "front-face" src="static/cards-img/front-card img/6 крести.jpg" alt="6 крести"> 
         <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">
-           </div>
-</div>  
-`,
+           </div>`,
 ];
 
 
@@ -189,28 +186,50 @@ const cardDeck = [
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   cards: () => (/* binding */ cards),
-/* harmony export */   min: () => (/* binding */ min),
-/* harmony export */   renderGame: () => (/* binding */ renderGame),
-/* harmony export */   sec: () => (/* binding */ sec)
+/* harmony export */   renderGame: () => (/* binding */ renderGame)
 /* harmony export */ });
-/* harmony import */ var _renderGameField_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGameField.js */ "./src/components/renderGameField.js");
+/* harmony import */ var _cardDeck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardDeck */ "./src/components/cardDeck.js");
+/* harmony import */ var _renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderStartHtml.js */ "./src/components/renderStartHtml.js");
+
 
 let cards = document.querySelectorAll(".memory-card");
-//let min = 0;
-//min = min < 10 ? "0" + min : min;
-//let sek = 0;
-//sek = sek < 10 ? "0" + sek : sek;
-let countDownDate = new Date().getTime();
+
+/*let countDownDate = new Date().getTime();
 let now = new Date().getTime();
-let distance = countDownDate - now;
-let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+export let distance = countDownDate - now;
+
+export let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 min = min < 10 ? "0" + min : min;
-let sec = Math.floor((distance % (1000 * 60)) / 1000);
+export let sec = Math.floor((distance % (1000 * 60)) / 1000);
 sec = sec < 10 ? "0" + sec : sec;
+*/
+function renderGame(size) {
+    let cardsDeck = _cardDeck__WEBPACK_IMPORTED_MODULE_0__.cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
+    let dublicateCardArray = cardsDeck.concat(cardsDeck);
 
-const renderGame = () => {
-    (0,_renderGameField_js__WEBPACK_IMPORTED_MODULE_0__.renderGameField)();
+    const headerGame = `   
+    <div class = "header">
+<div class = "timer">
+    <div class = "timer-header" id = "time"> 
+        <div class = "timer-header-min" id = "min">min</div>
+        <div class = "timer-header-sek" id = "sek">sek</div>
+    </div>
+    <div class = "timer-duration" id = "timer">00.00</div>
+</div>
+<div class = "restart">
+    <button class = "button-restart" id = "reset">Начать заново</button>
+</div>
+</div>`;
 
+    _renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__.appEl.innerHTML = `<div class = "main-field">
+    ${headerGame} <div class = "game-field">${dublicateCardArray.join("")}
+    </div>
+    </div>`;
+
+    const reset = document.getElementById("reset");
+    reset.addEventListener("click", () => {
+        (0,_renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__.renderStartHtml)();
+    });
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
@@ -257,7 +276,7 @@ const renderGame = () => {
             firstCard.removeEventListener("click", flipCard);
             secondCard.removeEventListener("click", flipCard);
             resetBoard();
-            // alert("Вы победили!");
+            alert("Вы победили!");
         }, 1000);
     }
 
@@ -266,7 +285,7 @@ const renderGame = () => {
             firstCard.classList.remove("flip");
             secondCard.classList.remove("flip");
             resetBoard();
-            //  alert("Вы проиграли!");
+           alert("Вы проиграли!");
         }, 1000);
     }
 
@@ -277,77 +296,13 @@ const renderGame = () => {
 
     (function shuffle() {
         cards.forEach((card) => {
-            let ramdomPos = Math.floor(Math.random() * 12);
+            let ramdomPos = Math.floor(Math.random() * 36);
             card.style.order = ramdomPos;
         });
     })();
 
     cards.forEach((card) => card.addEventListener("click", flipCard));
-};
-
-
-/***/ }),
-
-/***/ "./src/components/renderGameField.js":
-/*!*******************************************!*\
-  !*** ./src/components/renderGameField.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   renderGameField: () => (/* binding */ renderGameField)
-/* harmony export */ });
-/* harmony import */ var _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardDeck.js */ "./src/components/cardDeck.js");
-/* harmony import */ var _renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderStartHtml.js */ "./src/components/renderStartHtml.js");
-/* harmony import */ var _renderGame_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./renderGame.js */ "./src/components/renderGame.js");
-
-
-
-function renderGameField() {
-    let cardsDeck = _cardDeck_js__WEBPACK_IMPORTED_MODULE_0__.cardDeck;
-    let dublicateCardArray = cardsDeck.concat(cardsDeck);
-
-    const appEl = document.getElementById("app");
-    const headerGame = `   <div class = "header">
-<div class = "timer">
-    <div class = "timer-header"> 
-        <div class = "timer-header-min" id = "min">min</div>
-        <div class = "timer-header-sek" id = "sek">sek</div>
-    </div>
-    <div class = "timer-duration" id = "timer"><span id="min">${_renderGame_js__WEBPACK_IMPORTED_MODULE_2__.min}</span>.<span id="sec">${_renderGame_js__WEBPACK_IMPORTED_MODULE_2__.sec}</span></div>
-</div>
-<div class = "restart">
-    <button class = "button-restart" id = "reset">Начать заново</button>
-</div>
-
-</div>`;
-
-    appEl.innerHTML = `<div class = "main-field">
-    ${headerGame} ${dublicateCardArray.join("")}
-    </div>
-    <div class = "conteiner-module">
-    <div class = "content module modal" > 
-    <img  class = "img" src = "./static/celebration.png">
-    <h1 class = "content-title">Вы выиграли!</h1>
-    <h3 class = "content-title-small">Затраченное время:</h3>
-    <h3 class ="timer-duration">01.20</h3>
-    <button class = "button-restart" id = "reset-play">Играть снова </button>
-    </div></div>`;
-    console.log(dublicateCardArray);
-    const reset = document.getElementById("reset");
-    console.log(reset);
-    reset.addEventListener("click", () => {
-        (0,_renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__.renderStartHtml)();
-    });
-    const resetPlay = document.getElementById("reset-play");
-    resetPlay.addEventListener("click", () => {
-        (0,_renderStartHtml_js__WEBPACK_IMPORTED_MODULE_1__.renderStartHtml)();
-    });
 }
-
-//if ? <img  class = "img" src = "./static/celebration.png"> : <img  class = "img" src = "./static/dead.png">
-//if ? <h1 class = "content-title">Вы выиграли!</h1>:<h1 class = "content-title">Вы проиграли!</h1>
 
 
 /***/ }),
@@ -360,13 +315,13 @@ function renderGameField() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   appEl: () => (/* binding */ appEl),
 /* harmony export */   renderStartHtml: () => (/* binding */ renderStartHtml)
 /* harmony export */ });
 /* harmony import */ var _renderGame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderGame.js */ "./src/components/renderGame.js");
 
-
+const appEl = document.getElementById("app");
 const renderStartHtml = () => {
-    const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
                 <h1 class = "content-title"> Выбери сложность</h1>
@@ -393,17 +348,17 @@ const renderStartHtml = () => {
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
-            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)();
+            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)(6);
         }
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
-            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)();
+            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)(12);
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
-            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)();
+            (0,_renderGame_js__WEBPACK_IMPORTED_MODULE_0__.renderGame)(18);
         }
     });
 };

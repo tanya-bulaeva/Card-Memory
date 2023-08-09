@@ -178,7 +178,7 @@ a {
 
 .game-field {
     display: grid;
-    grid-template-columns: repeat(9, 94px);
+    grid-template-columns: repeat(auto-fit, minmax(133px, 1fr));
     grid-template-rows: repeat(4, 133px);
     gap: 10px 15px;
     flex-wrap: wrap;
