@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { cardDeck } from "./cardDeck";
 import { appEl, renderStartHtml } from "./renderStartHtml.js";
 export let cards = document.querySelectorAll(".memory-card");
@@ -18,7 +19,7 @@ export function renderGame(size) {
     const headerGame = `   
     <div class = "header">
 <div class = "timer">
-    <div class = "timer-header" id = "time"> 
+    <div class = "timer-header"> 
         <div class = "timer-header-min" id = "min">min</div>
         <div class = "timer-header-sek" id = "sek">sek</div>
     </div>
@@ -33,11 +34,12 @@ export function renderGame(size) {
     ${headerGame} <div class = "game-field">${dublicateCardArray.join("")}
     </div>
     </div>`;
-
-    const reset = document.getElementById("reset");
-    reset.addEventListener("click", () => {
+    document.getElementById("reset").addEventListener("click", () => {
         renderStartHtml();
     });
+
+    // The timer function
+
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
@@ -60,6 +62,33 @@ export function renderGame(size) {
         }
     }
     setTimeout(hideAll, 5000);
+
+    function startTimer() {
+        let second = 0;
+        let minute = 0;
+        let hour = 0;
+        minute = minute < 10 ? "0" + minute : minute;
+        second = second < 10 ? "0" + second : second;
+        let timer = document.getElementById("timer");
+        let interval;
+        interval = setInterval(function () {
+            timer.innerHTML = minute + "." + second;
+            second++;
+            second = second < 10 ? "0" + second : second;
+            if (second === 60) {
+                minute++;
+                second = 0;
+                minute = minute < 10 ? "0" + minute : minute;
+                second = second < 10 ? "0" + second : second;
+            }
+            if (minute === 60) {
+                hour++;
+                minute = 0;
+            }
+        }, 1000);
+    }
+    setTimeout(startTimer, 4000);
+
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
@@ -84,7 +113,7 @@ export function renderGame(size) {
             firstCard.removeEventListener("click", flipCard);
             secondCard.removeEventListener("click", flipCard);
             resetBoard();
-            alert("Вы победили!");
+            //alert("Вы победили!");
         }, 1000);
     }
 
@@ -93,7 +122,7 @@ export function renderGame(size) {
             firstCard.classList.remove("flip");
             secondCard.classList.remove("flip");
             resetBoard();
-            alert("Вы проиграли!");
+            //alert("Вы проиграли!");
         }, 1000);
     }
 
@@ -101,13 +130,6 @@ export function renderGame(size) {
         [hasFlippedCard, lockBoard] = [false, false];
         [firstCard, secondCard] = [null, null];
     }
-
-    (function shuffle() {
-        cards.forEach((card) => {
-            let ramdomPos = Math.floor(Math.random() * 36);
-            card.style.order = ramdomPos;
-        });
-    })();
 
     cards.forEach((card) => card.addEventListener("click", flipCard));
 }
