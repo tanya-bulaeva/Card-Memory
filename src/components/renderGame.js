@@ -12,7 +12,7 @@ export let sec = Math.floor((distance % (1000 * 60)) / 1000);
 sec = sec < 10 ? "0" + sec : sec;
 */
 export function renderGame(size) {
-    let cardsDeck = cardDeck.slice(0, size / 2);
+    let cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
     let dublicateCardArray = cardsDeck.concat(cardsDeck);
 
     const headerGame = `   
@@ -105,7 +105,7 @@ export function renderGame(size) {
 
     (function shuffle() {
         cards.forEach((card) => {
-            let ramdomPos = Math.floor(Math.random() * 12);
+            let ramdomPos = Math.floor(Math.random() * 36);
             card.style.order = ramdomPos;
         });
     })();
