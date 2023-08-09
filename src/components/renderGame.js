@@ -14,7 +14,7 @@ sec = sec < 10 ? "0" + sec : sec;
 export function renderGame(size) {
     let cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
     let dublicateCardArray = cardsDeck.concat(cardsDeck);
-
+    console.log(dublicateCardArray);
     const headerGame = `   
     <div class = "header">
 <div class = "timer">
