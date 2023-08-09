@@ -1,20 +1,44 @@
-import { renderGameField } from "./renderGameField.js";
+import { cardDeck } from "./cardDeck";
+import { appEl, renderStartHtml } from "./renderStartHtml.js";
 export let cards = document.querySelectorAll(".memory-card");
-//let min = 0;
-//min = min < 10 ? "0" + min : min;
-//let sek = 0;
-//sek = sek < 10 ? "0" + sek : sek;
-let countDownDate = new Date().getTime();
+
+/*let countDownDate = new Date().getTime();
 let now = new Date().getTime();
-let distance = countDownDate - now;
+export let distance = countDownDate - now;
+
 export let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 min = min < 10 ? "0" + min : min;
 export let sec = Math.floor((distance % (1000 * 60)) / 1000);
 sec = sec < 10 ? "0" + sec : sec;
+*/
+export function renderGame(size) {
+    let cardsDeck = cardDeck.slice(0, size / 2);
+    let dublicateCardArray = cardsDeck.concat(cardsDeck);
 
-export const renderGame = () => {
-    renderGameField();
+    const headerGame = `   
+    <div class = "header">
+<div class = "timer">
+    <div class = "timer-header" id = "time"> 
+        <div class = "timer-header-min" id = "min">min</div>
+        <div class = "timer-header-sek" id = "sek">sek</div>
+    </div>
+    <div class = "timer-duration" id = "timer">00.00</div>
+</div>
+<div class = "restart">
+    <button class = "button-restart" id = "reset">Начать заново</button>
+</div>
 
+</div>`;
+
+    appEl.innerHTML = `<div class = "main-field">
+    ${headerGame} <div class = "game-field">${dublicateCardArray.join("")}
+    </div>
+    </div>`;
+
+    const reset = document.getElementById("reset");
+    reset.addEventListener("click", () => {
+        renderStartHtml();
+    });
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
@@ -61,7 +85,7 @@ export const renderGame = () => {
             firstCard.removeEventListener("click", flipCard);
             secondCard.removeEventListener("click", flipCard);
             resetBoard();
-            // alert("Вы победили!");
+            alert("Вы победили!");
         }, 1000);
     }
 
@@ -70,7 +94,7 @@ export const renderGame = () => {
             firstCard.classList.remove("flip");
             secondCard.classList.remove("flip");
             resetBoard();
-            //  alert("Вы проиграли!");
+            alert("Вы проиграли!");
         }, 1000);
     }
 
@@ -87,4 +111,4 @@ export const renderGame = () => {
     })();
 
     cards.forEach((card) => card.addEventListener("click", flipCard));
-};
+}

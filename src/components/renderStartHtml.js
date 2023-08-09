@@ -1,7 +1,6 @@
 import { renderGame } from "./renderGame.js";
-
+export const appEl = document.getElementById("app");
 export const renderStartHtml = () => {
-    const appEl = document.getElementById("app");
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
                 <h1 class = "content-title"> Выбери сложность</h1>
@@ -28,17 +27,17 @@ export const renderStartHtml = () => {
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
-            renderGame();
+            renderGame(6);
         }
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
-            renderGame();
+            renderGame(12);
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
-            renderGame();
+            renderGame(18);
         }
     });
 };
