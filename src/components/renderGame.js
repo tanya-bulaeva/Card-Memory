@@ -10,7 +10,9 @@ let distance = countDownDate - now;*/
 
 export function renderGame(size) {
     let cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
-    let dublicateCardArray = cardsDeck.concat(cardsDeck);
+    let dublicateCardArray = cardsDeck
+        .concat(cardsDeck)
+        .sort(() => Math.random() - 0.5);
     console.log(dublicateCardArray);
     const headerGame = `   
     <div class = "header">
@@ -81,6 +83,7 @@ export function renderGame(size) {
         }, 1000);
     }
     setTimeout(startTimer, 4000);
+    //переворачивание карт
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
@@ -94,7 +97,7 @@ export function renderGame(size) {
         lockBoard = true;
         checkForMatch();
     }
-
+    //сравнение карт
     function checkForMatch() {
         let isMatch = firstCard.dataset.index === secondCard.dataset.index;
         isMatch ? disableCards() : unflipCards();
@@ -124,11 +127,8 @@ export function renderGame(size) {
         <button class = "button-restart" id = "reset-play">Играть снова </button>
          </div></div>`;
         appEl.innerHTML = page;
-        const resetPlay = document.getElementById("reset-play");
-        resetPlay.addEventListener("click", () => {
-            renderStartHtml();
-        });
     };
+    //если сошлась пара
     function disableCards() {
         setTimeout(() => {
             firstCard.removeEventListener("click", flipCard);
@@ -137,7 +137,7 @@ export function renderGame(size) {
             //alert("Вы победили!");
         }, 1000);
     }
-
+    //если не сошлась пара
     function unflipCards() {
         setTimeout(() => {
             firstCard.classList.remove("flip");
@@ -152,5 +152,6 @@ export function renderGame(size) {
         [hasFlippedCard, lockBoard] = [false, false];
         [firstCard, secondCard] = [null, null];
     }
+
     cards.forEach((card) => card.addEventListener("click", flipCard));
 }
