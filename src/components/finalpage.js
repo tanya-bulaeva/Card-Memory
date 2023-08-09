@@ -34,3 +34,10 @@ export const finalPageDead = () => {
         renderStartHtml();
     });
 };
+export let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+min = min < 10 ? "0" + min : min;
+export let sec = Math.floor((distance % (1000 * 60)) / 1000);
+sec = sec < 10 ? "0" + sec : sec;
+let countDownDate = new Date().getTime();
+let now = new Date().getTime();
+let distance = countDownDate - now;
