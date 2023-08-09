@@ -1,17 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { cardDeck } from "./cardDeck";
+//import { finalPageCeleb, finalPageDead } from "./finalpage.js";
 import { appEl, renderStartHtml } from "./renderStartHtml.js";
 export let cards = document.querySelectorAll(".memory-card");
 
 /*let countDownDate = new Date().getTime();
 let now = new Date().getTime();
-export let distance = countDownDate - now;
+let distance = countDownDate - now;*/
 
-export let min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-min = min < 10 ? "0" + min : min;
-export let sec = Math.floor((distance % (1000 * 60)) / 1000);
-sec = sec < 10 ? "0" + sec : sec;
-*/
 export function renderGame(size) {
     let cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
     let dublicateCardArray = cardsDeck.concat(cardsDeck);
@@ -37,9 +33,6 @@ export function renderGame(size) {
     document.getElementById("reset").addEventListener("click", () => {
         renderStartHtml();
     });
-
-    // The timer function
-
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let lockBoard = false;
@@ -62,7 +55,7 @@ export function renderGame(size) {
         }
     }
     setTimeout(hideAll, 5000);
-
+    //включение таймера
     function startTimer() {
         let second = 0;
         let minute = 0;
@@ -88,7 +81,6 @@ export function renderGame(size) {
         }, 1000);
     }
     setTimeout(startTimer, 4000);
-
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
@@ -107,7 +99,36 @@ export function renderGame(size) {
         let isMatch = firstCard.dataset.index === secondCard.dataset.index;
         isMatch ? disableCards() : unflipCards();
     }
-
+    //страница победы
+    const finalPageCeleb = () => {
+        const page = `
+        <div class = "conteiner-module">
+    <div class = "content modal" > 
+    <img  class = "img" src = "./static/celebration.png">
+    <h1 class = "content-title">Вы выиграли!</h1>
+    <h3 class = "content-title-small">Затраченное время:</h3>
+    <h3 class ="timer-duration">00.00</h3>
+    <button class = "button-restart" id = "reset-play">Играть снова </button>
+     </div></div>`;
+        appEl.innerHTML = page;
+        renderStartHtml();
+    };
+    //страница проигрыша
+    const finalPageDead = () => {
+        const page = `<div class = "conteiner-module">
+        <div class = "content modal" > 
+        <img  class = "img" src = "./static/dead.png">
+        <h1 class = "content-title">Вы проиграли!</h1>
+        <h3 class = "content-title-small">Затраченное время:</h3>
+        <h3 class ="timer-duration">01.20</h3>
+        <button class = "button-restart" id = "reset-play">Играть снова </button>
+         </div></div>`;
+        appEl.innerHTML = page;
+        const resetPlay = document.getElementById("reset-play");
+        resetPlay.addEventListener("click", () => {
+            renderStartHtml();
+        });
+    };
     function disableCards() {
         setTimeout(() => {
             firstCard.removeEventListener("click", flipCard);
@@ -123,6 +144,7 @@ export function renderGame(size) {
             secondCard.classList.remove("flip");
             resetBoard();
             //alert("Вы проиграли!");
+            finalPageDead();
         }, 1000);
     }
 
@@ -130,6 +152,5 @@ export function renderGame(size) {
         [hasFlippedCard, lockBoard] = [false, false];
         [firstCard, secondCard] = [null, null];
     }
-
     cards.forEach((card) => card.addEventListener("click", flipCard));
 }

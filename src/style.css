@@ -226,10 +226,6 @@ a {
   z-index: 2;
 }
 
-.module {
-  display: none;
-}
-
 .conteiner-module {
   display: flex;
   flex-direction: column;
