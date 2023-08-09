@@ -169,7 +169,6 @@ a {
   gap: 10px 15px;
   flex-wrap: wrap;
   margin-top: 10px;
-  perspective: 1000px;
   position: static;
   z-index: 1;
 }
@@ -198,6 +197,7 @@ a {
 
 .memory-card.flip {
   transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 .front-face {
