@@ -1,7 +1,6 @@
-//import { renderGameField } from "../src/main.js";
-
-/*export const renderStartHtml = () => {
-    const appEl = document.getElementById("app");
+import { renderGame } from "./renderGame.js";
+export const appEl = document.getElementById("app");
+export const renderStartHtml = () => {
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
                 <h1 class = "content-title"> Выбери сложность</h1>
@@ -9,11 +8,11 @@
                 <div class = "game-difficulty" id = "game-form" >
                 <form class = "radio-toolbar"  id = "form">           
                  <div class = "input-form">
-                   <input type="radio" id="radio1" name="radios" value="1">
+                   <input type="radio" id="radio1" name="level" value="6" class = "easy-level">
                     <label class = "radio-label" for="radio1">1</label>
-                    <input type="radio" id="radio2" name="radios" value="2">
+                    <input type="radio" id="radio2" name="level" value="12" class = "medium-level">
                     <label  class = "radio-label" for="radio2">2</label>
-                    <input type="radio" id="radio3" name="radios" value="3">
+                    <input type="radio" id="radio3" name="level" value="18" class ="hard-level">
                     <label class = "radio-label" for="radio3">3</label>
              </div>
                 <div class = "button-box"> 
@@ -22,27 +21,23 @@
             </div>
     `;
     const formEl = document.getElementById("form");
-    console.log(formEl[0]);
-    console.log(formEl[1]);
-    console.log(formEl[2]);
     formEl.addEventListener("submit", (event) => {
         event.preventDefault();
 
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
-            renderGameField();
+            renderGame(6);
         }
         if (formEl[1].checked) {
             appEl.innerHTML = `2 уровень сложности`;
             console.log(2);
-            renderGameField();
+            renderGame(12);
         }
         if (formEl[2].checked) {
             appEl.innerHTML = `3 уровень сложности`;
             console.log(3);
-            renderGameField();
+            renderGame(18);
         }
     });
 };
-*/
