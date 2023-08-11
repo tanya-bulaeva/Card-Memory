@@ -25,7 +25,7 @@ export const renderStartHtml = () => {
     if (formEl) {
     formEl.addEventListener("submit", (event : MouseEvent) => {
         event.preventDefault();
-
+        
         if (formEl[0].checked) {
             appEl.innerHTML = `1 уровень сложности`;
             console.log(1);
