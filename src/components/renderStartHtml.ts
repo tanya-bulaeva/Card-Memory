@@ -1,6 +1,7 @@
-import { renderGame } from "./renderGame.js";
-export const appEl = document.getElementById("app");
+import { renderGame } from "./renderGame";
+export const appEl = document.getElementById("app") as HTMLElement;
 export const renderStartHtml = () => {
+    if (appEl) {
     appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
                 <h1 class = "content-title"> Выбери сложность</h1>
@@ -19,9 +20,10 @@ export const renderStartHtml = () => {
                  <button class = "start-button">Старт</button></div>
                </form> 
             </div>
-    `;
-    const formEl = document.getElementById("form");
-    formEl.addEventListener("submit", (event) => {
+    `}
+    const formEl : any =  document.getElementById("form");
+    if (formEl) {
+    formEl.addEventListener("submit", (event : MouseEvent) => {
         event.preventDefault();
 
         if (formEl[0].checked) {
@@ -39,5 +41,5 @@ export const renderStartHtml = () => {
             console.log(3);
             renderGame(18);
         }
-    });
+    })}
 };

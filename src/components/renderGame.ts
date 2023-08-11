@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { cardDeck } from "./cardDeck";
-//import { finalPageCeleb, finalPageDead } from "./finalpage.js";
-import { appEl, renderStartHtml } from "./renderStartHtml.js";
-export let cards = document.querySelectorAll(".memory-card");
+import { appEl, renderStartHtml } from "./renderStartHtml";
 
-export function renderGame(size) {
+export function renderGame(size: number) {
     //генерация массива в зависимости от уровня
     let cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
     //создание дубликата массива
@@ -32,50 +30,59 @@ export function renderGame(size) {
     </div>
     `;
     //обработчик событий на кнопку сброса
-    document.getElementById("reset").addEventListener("click", () => {
+    let reset = document.getElementById("reset") as HTMLElement;
+    reset.addEventListener("click", () => {
         renderStartHtml();
     });
     //переменные
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
-    let state;
+    let state: number;
     let lockBoard = false;
-    let firstCard, secondCard;
-    let second = 0;
-    let minute = 0;
-    let hour = 0;
-    let timer = document.getElementById("timer");
+    let firstCard: HTMLElement | null , secondCard: HTMLElement | null;
+    //let second = 0;
+    //let minute = 0 ;
+   // let hour = 0;
+    let timer = document.getElementById("timer") as HTMLElement;
     let interval;
 
     //показать все карты
     function showAll() {
-        for (let el of cards) {
-            el.classList.add("flip");
+        if (cards){
+           let itemArray = Array.from(cards)
+            for (let card of itemArray) {
+                card.classList.add("flip");
+        }        
         }
+
     }
     setTimeout(showAll, 1000);
 
     //закрыть все карты через 5 секунд
     function hideAll() {
-        for (let el of cards) {
-            el.classList.remove("flip");
+        if (cards){
+            let itemArray = Array.from(cards)
+             for (let card of itemArray) {
+                card.classList.remove("flip");
         }
-    }
+    }        
+        }
+
     setTimeout(hideAll, 5000);
 
-    //включение таймера
-    function startTimer() {
-        minute = minute < 10 ? "0" + minute : minute;
-        second = second < 10 ? "0" + second : second;
-        interval = setInterval(function () {
+    //включение таймераб исходник
+  /*  function startTimer() {
+   //     minute  = minute < 10 ? "0" + minute : minute;
+   //     second = second < 10 ? "0" + second : second;
+            interval = setInterval(function () {
             timer.innerHTML = minute + "." + second;
             second++;
-            second = second < 10 ? "0" + second : second;
+    //        second = second < 10 ? "0" + second : second;
             if (second === 60) {
                 minute++;
                 second = 0;
-                minute = minute < 10 ? "0" + minute : minute;
-                second = second < 10 ? "0" + second : second;
+   //             minute = minute < 10 ? "0" + minute : minute;
+   //            second = second < 10 ? "0" + second : second;
             }
             if (minute === 60) {
                 hour++;
@@ -83,13 +90,24 @@ export function renderGame(size) {
             }
         }, 1000);
         state = 0;
-    }
-    setTimeout(startTimer, 3500);
+    }*/
+    
+    const startTime = Date.now(); 
+    function startTimer() {
+    interval =  setInterval(() => {
+      const currentTime = Date.now();
+      const elapsedTime = currentTime - startTime;
+      let minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
+      let seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
+      timer.innerHTML =   `${minutes}.${seconds}`;
+    }, 1000);
+    state = 0
+}
+    
+    //
+    setTimeout(startTimer, 5000);
     //переворачивание карт
-    function flipCard() {
-        if (lockBoard) return; //Объявим переменную lockBoard.
-        //Когда игрок нажмёт на вторую карточку, lockBoard будет присвоено значение true,
-        //а условие if (lockBoard) return; предотвратит переворот других карточек до того, как эти две будут спрятаны или совпадут:
+    function flipCard(this: any) {
         if (this === firstCard) return;
         this.classList.add("flip");
         if (!hasFlippedCard) {
@@ -104,48 +122,27 @@ export function renderGame(size) {
     }
     //сравнение карт
     function checkForMatch() {
-        let isMatch = firstCard.dataset.index === secondCard.dataset.index;
+        let isMatch = firstCard!.dataset.index === secondCard!.dataset.index;
         if (!isMatch) {
             setTimeout(() => {
-                firstCard.classList.remove("flip");
-                secondCard.classList.remove("flip");
-                clearInterval(startTimer);
+                firstCard!.classList.remove("flip");
+                secondCard!.classList.remove("flip");
+                clearTimeout(setTimeout(startTimer));
                 resetBoard();
                 finalPageDead();
             }, 1000);
         }
         if (isMatch) {
-            firstCard.removeEventListener("click", flipCard);
-            secondCard.removeEventListener("click", flipCard);
+            firstCard!.removeEventListener("click", flipCard);
+            secondCard!.removeEventListener("click", flipCard);
             resetBoard();
             if (state === dublicateCardArray.length) {
-                clearInterval(startTimer);
+                clearTimeout(setTimeout(startTimer));
                 setTimeout(() => {
                     finalPageCeleb();
                 }, 1000);
             }
         }
-
-        //если сошлась пара
-        /* первый вариант function disableCards() {
-        setTimeout(() => {
-            firstCard.removeEventListener("click", flipCard);
-            secondCard.removeEventListener("click", flipCard);
-            resetBoard();
-            alert("Вы победили!");
-        }, 1000);
-    }*/
-        /* //если не сошлась пара
-    function unflipCards() {
-        setTimeout(() => {
-            firstCard.classList.remove("flip");
-            secondCard.classList.remove("flip");
-            resetBoard();
-            clearInterval(startTimer);
-            finalPageDead()
-        }, 1000);
-
-    }*/
         //обновление данных
         function resetBoard() {
             [hasFlippedCard, lockBoard] = [false, false];
@@ -155,7 +152,12 @@ export function renderGame(size) {
 
     //страница победы
     const finalPageCeleb = () => {
-        let duration = `${minute}` + ":" + `${second}`;
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - startTime;
+        let minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
+        let seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
+        let duration = `${minutes}` + ":" + `${seconds}`;
+        console.log (duration);
         const page = `
             <div class = "conteiner-module">
         <div class = "content modal" > 
@@ -166,27 +168,30 @@ export function renderGame(size) {
         <button class = "button-restart" id = "reset-play">Играть снова </button>
          </div></div>`;
         appEl.innerHTML = page;
-        const resetPlay = document.getElementById("reset-play");
+        const resetPlay = document.getElementById("reset-play") as HTMLElement;
         resetPlay.addEventListener("click", () => {
             renderStartHtml();
         });
     };
     //страница проигрыша
     const finalPageDead = () => {
-        //  let duration = `${minute}` + ":" + `${second}`;
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - startTime;
+        let minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
+        let seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
+        let duration = `${minutes}` + ":" + `${seconds}`;
+        console.log (duration);
         const page =
             ` <div class = "conteiner-module">"
             <div class = "content modal" > 
             <img  class = "img" src = "./static/dead.png">
             <h1 class = "content-title">Вы проиграли!</h1>
             <h3 class = "content-title-small">Затраченное время:</h3>
-            <h3 class ="timer-duration">${minute}` +
-            ":" +
-            `${second}</h3>
+            <h3 class ="timer-duration">${duration}</h3>
             <button class = "button-restart" id = "reset-play">Играть снова </button>
              </div></div>`;
         appEl.innerHTML = page;
-        const resetPlay = document.getElementById("reset-play");
+        const resetPlay = document.getElementById("reset-play") as HTMLElement;
         resetPlay.addEventListener("click", () => {
             renderStartHtml();
         });
