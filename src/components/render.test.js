@@ -17,9 +17,13 @@ it ("returns NaN if level is not a number", () => {
 })
 */
 describe("card deck", () => {
-    it ("checking the size of a deck of cards", () => {
+    it ("should checking the size of a deck of cards", () => {
     const cards = cardDeck; 
      expect(cards).toHaveLength(36);  
     })
+    it ("should checking the size of a deck of cards", () => {
+    const cards = [1,1,1,1,1,1,1,1,1,1]
+    expect(cards).toHaveLength(10);  
+    })   
 })
 
