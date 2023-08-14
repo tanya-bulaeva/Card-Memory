@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
+
 import { cardDeck } from "./cardDeck";
 import { appEl, renderStartHtml } from "./renderStartHtml";
-
 export function renderGame(size: number) {
+    
+
     //генерация массива в зависимости от уровня
     const cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
     //создание дубликата массива
