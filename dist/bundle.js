@@ -78,6 +78,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _cardDeck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cardDeck */ "./src/components/cardDeck.ts");
 /* harmony import */ var _renderStartHtml__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./renderStartHtml */ "./src/components/renderStartHtml.ts");
+/* eslint-disable @typescript-eslint/no-this-alias */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
 
 
@@ -101,7 +103,6 @@ function renderGame(size) {
     var cards = document.querySelectorAll(".memory-card");
     var hasFlippedCard = false;
     var state;
-    var lockBoard = false;
     var firstCard, secondCard;
     //let second = 0;
     //let minute = 0 ;
@@ -164,6 +165,7 @@ function renderGame(size) {
     }
     //
     setTimeout(startTimer, 5000);
+    var lockBoard = false;
     //переворачивание карт
     function flipCard() {
         if (this === firstCard)
@@ -216,7 +218,6 @@ function renderGame(size) {
         var minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
         var seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
         var duration = "".concat(minutes) + ":" + "".concat(seconds);
-        console.log(duration);
         var page = "\n            <div class = \"conteiner-module\">\n        <div class = \"content modal\" > \n        <img  class = \"img\" src = \"./static/celebration.png\">\n        <h1 class = \"content-title\">\u0412\u044B \u0432\u044B\u0438\u0433\u0440\u0430\u043B\u0438!</h1>\n        <h3 class = \"content-title-small\">\u0417\u0430\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F:</h3>\n        <h3 class =\"timer-duration\">".concat(duration, "</h3>\n        <button class = \"button-restart\" id = \"reset-play\">\u0418\u0433\u0440\u0430\u0442\u044C \u0441\u043D\u043E\u0432\u0430 </button>\n         </div></div>");
         _renderStartHtml__WEBPACK_IMPORTED_MODULE_1__.appEl.innerHTML = page;
         var resetPlay = document.getElementById("reset-play");
@@ -231,7 +232,6 @@ function renderGame(size) {
         var minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
         var seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
         var duration = "".concat(minutes) + ":" + "".concat(seconds);
-        console.log(duration);
         var page = " <div class = \"conteiner-module\">\"\n            <div class = \"content modal\" > \n            <img  class = \"img\" src = \"./static/dead.png\">\n            <h1 class = \"content-title\">\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438!</h1>\n            <h3 class = \"content-title-small\">\u0417\u0430\u0442\u0440\u0430\u0447\u0435\u043D\u043D\u043E\u0435 \u0432\u0440\u0435\u043C\u044F:</h3>\n            <h3 class =\"timer-duration\">".concat(duration, "</h3>\n            <button class = \"button-restart\" id = \"reset-play\">\u0418\u0433\u0440\u0430\u0442\u044C \u0441\u043D\u043E\u0432\u0430 </button>\n             </div></div>");
         _renderStartHtml__WEBPACK_IMPORTED_MODULE_1__.appEl.innerHTML = page;
         var resetPlay = document.getElementById("reset-play");
@@ -262,25 +262,43 @@ __webpack_require__.r(__webpack_exports__);
 var appEl = document.getElementById("app");
 var renderStartHtml = function () {
     if (appEl) {
-        appEl.innerHTML = "<div class = \"content\">\n                <div class = \"content-title-box\">\n                <h1 class = \"content-title\"> \u0412\u044B\u0431\u0435\u0440\u0438 \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u044C</h1>\n            </div>\n                <div class = \"game-difficulty\" id = \"game-form\" >\n                <form class = \"radio-toolbar\"  id = \"form\">           \n                 <div class = \"input-form\">\n                   <input type=\"radio\" id=\"radio1\" name=\"level\" value=\"6\" class = \"easy-level\">\n                    <label class = \"radio-label\" for=\"radio1\">1</label>\n                    <input type=\"radio\" id=\"radio2\" name=\"level\" value=\"12\" class = \"medium-level\">\n                    <label  class = \"radio-label\" for=\"radio2\">2</label>\n                    <input type=\"radio\" id=\"radio3\" name=\"level\" value=\"18\" class =\"hard-level\">\n                    <label class = \"radio-label\" for=\"radio3\">3</label>\n             </div>\n                <div class = \"button-box\"> \n                 <button class = \"start-button\">\u0421\u0442\u0430\u0440\u0442</button></div>\n               </form> \n            </div>\n    ";
+        appEl.innerHTML = "<div class = \"content\">\n                <div class = \"content-title-box\">\n                <h1 class = \"content-title\"> \u0412\u044B\u0431\u0435\u0440\u0438 \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u044C</h1>\n            </div>\n                <div class = \"game-difficulty\" id = \"game-form\" >\n                <form class = \"radio-toolbar\"  id = \"form\">           \n                 <div class = \"input-form\">\n                   <input type=\"radio\" id=\"radio1\" name=\"level\" value=\"6\" class = \"easy-level\" checked>\n                    <label class = \"radio-label\" for=\"radio1\">1</label>\n                    <input type=\"radio\" id=\"radio2\" name=\"level\" value=\"12\" class = \"medium-level\">\n                    <label  class = \"radio-label\" for=\"radio2\">2</label>\n                    <input type=\"radio\" id=\"radio3\" name=\"level\" value=\"18\" class =\"hard-level\">\n                    <label class = \"radio-label\" for=\"radio3\">3</label>\n             </div>\n                <div class = \"button-box\"> \n                 <button class = \"start-button\">\u0421\u0442\u0430\u0440\u0442</button></div>\n               </form> \n            </div>\n    ";
     }
+    /* const formEl  =  document.getElementById("form") as HTMLElement;
+     if (formEl) {
+      formEl.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const easyLevel = document.querySelectorAll(".easy-level") as HTMLInputElement;
+          const mediumLevel = document.querySelectorAll(".medium-level") as HTMLElement;
+          const hardLevel = document.querySelectorAll(".hard-level") as HTMLElement;
+          if (easyLevel.checked) {
+              renderGame(6);
+          }
+          if (formEl[1].checked) {
+              renderGame(12);
+          }
+          if (formEl[2].checked) {
+              renderGame(18);
+          }
+         
+      })
+       
+  }
+  */
     var formEl = document.getElementById("form");
     if (formEl) {
         formEl.addEventListener("submit", function (event) {
             event.preventDefault();
-            if (formEl[0].checked) {
-                appEl.innerHTML = "1 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u0438";
-                console.log(1);
+            var easyLevel = document.querySelector(".easy-level");
+            var mediumLevel = document.querySelector(".medium-level");
+            var hardLevel = document.querySelector(".hard-level");
+            if (easyLevel.checked) {
                 (0,_renderGame__WEBPACK_IMPORTED_MODULE_0__.renderGame)(6);
             }
-            if (formEl[1].checked) {
-                appEl.innerHTML = "2 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u0438";
-                console.log(2);
+            if (mediumLevel.checked) {
                 (0,_renderGame__WEBPACK_IMPORTED_MODULE_0__.renderGame)(12);
             }
-            if (formEl[2].checked) {
-                appEl.innerHTML = "3 \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0441\u043B\u043E\u0436\u043D\u043E\u0441\u0442\u0438";
-                console.log(3);
+            if (hardLevel.checked) {
                 (0,_renderGame__WEBPACK_IMPORTED_MODULE_0__.renderGame)(18);
             }
         });
