@@ -132,8 +132,10 @@ export function renderGame(size: number) {
         const isMatch = firstCard!.dataset.index === secondCard!.dataset.index;
         if (!isMatch) {
             setTimeout(() => {
+                if (firstCard && secondCard){
                 firstCard!.classList.remove("flip");
-                secondCard!.classList.remove("flip");
+                secondCard!.classList.remove("flip"); 
+                }
                 clearTimeout(setTimeout(startTimer));
                 resetBoard();
                 finalPageDead();

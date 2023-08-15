@@ -8,13 +8,6 @@ const level = 6;
 const render = renderGame(level)
     expect(render).toBe(6);
 });
-it ("returns NaN if level is not a number", () => {
-    const level = "";
-    const render = renderGame(level)
-    expect(render).toBeNaN;
-    });
-
-})
 */
 describe("card deck", () => {
     it ("should checking the size of a deck of cards", () => {
