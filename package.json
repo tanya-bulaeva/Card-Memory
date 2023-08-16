@@ -13,10 +13,10 @@
         "format": "prettier --write ./src/",
         "lint:scss": "stylelint ./src/**/*.scss",
         "prepare": "husky install",
-        "lint": "npm run lint:scss",
+        "lint:ts": "eslint . --ext .ts",       
+        "lint": "npm run lint:scss && npm run lint:ts",
         "build": "SET NODE_ENV='production' && webpack",
-        "start": "webpack-dev-server --open",
-        "lint:ts": "eslint . --ext .ts"
+        "start": "webpack-dev-server --open"
     },
     "repository": {
         "type": "git",
