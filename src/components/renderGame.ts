@@ -106,7 +106,7 @@ if (appEl){
       const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
       timer.innerHTML =   `${minutes}.${seconds}`;
     }, 1000);
-    state = 0
+    state = 0;
 }
     
     //
@@ -150,7 +150,7 @@ if (appEl){
             if (state === dublicateCardArray.length) {
                 clearTimeout(setTimeout(startTimer));
                 setTimeout(() => {
-                    finalPageCeleb();
+                finalPageCeleb();
                 }, 1000);
             }
         }
