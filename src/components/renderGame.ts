@@ -5,8 +5,6 @@
 import { cardDeck } from "./cardDeck";
 import { appEl, renderStartHtml } from "./renderStartHtml";
 export function renderGame(size: number) {
-    
-
     //генерация массива в зависимости от уровня
     const cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
     //создание дубликата массива
@@ -28,16 +26,20 @@ export function renderGame(size: number) {
     <button class = "button-restart" id = "reset">Начать заново</button>
 </div>
 </div>`;
+if (appEl){
+        appEl.innerHTML = `<div class = "main-field ">
+        ${headerGame} <div class = "game-field">${dublicateCardArray.join("")}
+        </div>
+        `;
+}
 
-    appEl.innerHTML = `<div class = "main-field ">
-    ${headerGame} <div class = "game-field">${dublicateCardArray.join("")}
-    </div>
-    `;
     //обработчик событий на кнопку сброса
     const reset = document.getElementById("reset") as HTMLElement;
+    if (reset) {
     reset.addEventListener("click", () => {
         renderStartHtml();
     });
+}
     //переменные
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
@@ -73,7 +75,7 @@ export function renderGame(size: number) {
 
     setTimeout(hideAll, 5000);
 
-    //включение таймераб исходник
+    //включение таймера исходник, тайпскрипту не нравится 
   /*  function startTimer() {
    //     minute  = minute < 10 ? "0" + minute : minute;
    //     second = second < 10 ? "0" + second : second;
@@ -104,7 +106,7 @@ export function renderGame(size: number) {
       const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
       timer.innerHTML =   `${minutes}.${seconds}`;
     }, 1000);
-    state = 0
+    state = 0;
 }
     
     //
@@ -148,7 +150,7 @@ export function renderGame(size: number) {
             if (state === dublicateCardArray.length) {
                 clearTimeout(setTimeout(startTimer));
                 setTimeout(() => {
-                    finalPageCeleb();
+                finalPageCeleb();
                 }, 1000);
             }
         }
