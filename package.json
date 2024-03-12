@@ -16,7 +16,8 @@
         "lint:ts": "eslint . --ext .ts",
         "lint": "npm run lint:scss && npm run lint:ts",
         "build": "SET NODE_ENV='production' && webpack",
-        "start": "webpack-dev-server --open"
+        "start": "webpack-dev-server --open",
+        "format": "prettier .  --write"
     },
     "repository": {
         "type": "git",

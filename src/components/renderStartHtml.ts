@@ -2,7 +2,7 @@ import { renderGame } from "./renderGame";
 export const appEl = document.getElementById("app") as HTMLElement;
 export const renderStartHtml = () => {
     if (appEl) {
-    appEl.innerHTML = `<div class = "content">
+        appEl.innerHTML = `<div class = "content">
                 <div class = "content-title-box">
                 <h1 class = "content-title"> Выбери сложность</h1>
             </div>
@@ -20,48 +20,32 @@ export const renderStartHtml = () => {
                  <button class = "start-button">Старт</button></div>
                </form> 
             </div>
-    `}
-    
+    `;
+    }
 
-  /* const formEl  =  document.getElementById("form") as HTMLElement;
-   if (formEl) {
-    formEl.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const easyLevel = document.querySelectorAll(".easy-level") as HTMLInputElement;
-        const mediumLevel = document.querySelectorAll(".medium-level") as HTMLElement;
-        const hardLevel = document.querySelectorAll(".hard-level") as HTMLElement;
-        if (easyLevel.checked) {
-            renderGame(6);
-        }
-        if (formEl[1].checked) {
-            renderGame(12);
-        }
-        if (formEl[2].checked) {
-            renderGame(18);
-        }
-       
-    })
-     
-}
-*/
-const formEl  =  document.getElementById("form") as HTMLElement;
+    const formEl = document.getElementById("form") as HTMLElement;
 
     if (formEl) {
-    formEl.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const easyLevel = document.querySelector(".easy-level") as HTMLInputElement;
-        const mediumLevel = document.querySelector(".medium-level") as HTMLInputElement;
-        const hardLevel = document.querySelector(".hard-level") as HTMLInputElement;
-        if (easyLevel.checked) {
-            renderGame(6);
-        }
-        if (mediumLevel.checked) {
-            renderGame(12);
-        }
-        if (hardLevel.checked) {
-            renderGame(18);
-        }
-       
-    })}
-
-}
+        formEl.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const easyLevel = document.querySelector(
+                ".easy-level",
+            ) as HTMLInputElement;
+            const mediumLevel = document.querySelector(
+                ".medium-level",
+            ) as HTMLInputElement;
+            const hardLevel = document.querySelector(
+                ".hard-level",
+            ) as HTMLInputElement;
+            if (easyLevel.checked) {
+                renderGame(6);
+            }
+            if (mediumLevel.checked) {
+                renderGame(12);
+            }
+            if (hardLevel.checked) {
+                renderGame(18);
+            }
+        });
+    }
+};
