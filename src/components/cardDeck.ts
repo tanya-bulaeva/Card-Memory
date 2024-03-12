@@ -1,4 +1,4 @@
-export const cardDeck =  [
+export const cardDeck = [
     `<div class ="memory-card" data-index ="ace-spades">
     <img class = "front-face" src="static/cards-img/front-card img/туз пики.jpg" alt="туз пики">          
     <img class = "back-face" src="static/cards-img/back.jpg" alt="рубашка">

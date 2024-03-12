@@ -6,12 +6,14 @@ import { cardDeck } from "./cardDeck";
 import { appEl, renderStartHtml } from "./renderStartHtml";
 export function renderGame(size: number) {
     //генерация массива в зависимости от уровня
-    const cardsDeck = cardDeck.sort(() => Math.random() - 0.5).slice(0, size / 2);
+    const cardsDeck = cardDeck
+        .sort(() => Math.random() - 0.5)
+        .slice(0, size / 2);
     //создание дубликата массива
     const dublicateCardArray = cardsDeck
         .concat(cardsDeck)
         .sort(() => Math.random() - 0.5);
-    console.log(dublicateCardArray);
+
     //верстка экрана
     const headerGame = `   
     <div class = "header">
@@ -26,95 +28,75 @@ export function renderGame(size: number) {
     <button class = "button-restart" id = "reset">Начать заново</button>
 </div>
 </div>`;
-if (appEl){
+    if (appEl) {
         appEl.innerHTML = `<div class = "main-field ">
         ${headerGame} <div class = "game-field">${dublicateCardArray.join("")}
         </div>
         `;
-}
+    }
 
     //обработчик событий на кнопку сброса
     const reset = document.getElementById("reset") as HTMLElement;
     if (reset) {
-    reset.addEventListener("click", () => {
-        renderStartHtml();
-    });
-}
+        reset.addEventListener("click", () => {
+            renderStartHtml();
+        });
+    }
     //переменные
     const cards = document.querySelectorAll(".memory-card");
     let hasFlippedCard = false;
     let state: number;
-    let firstCard: HTMLElement | null , secondCard: HTMLElement | null;
+    let firstCard: HTMLElement | null, secondCard: HTMLElement | null;
     //let second = 0;
     //let minute = 0 ;
-   // let hour = 0;
+    // let hour = 0;
     const timer = document.getElementById("timer") as HTMLElement;
     let interval;
 
     //показать все карты
     function showAll() {
-        if (cards){
-           const itemArray = Array.from(cards)
+        if (cards) {
+            const itemArray = Array.from(cards);
             for (const card of itemArray) {
                 card.classList.add("flip");
-        }        
+            }
         }
-
     }
     setTimeout(showAll, 1000);
 
     //закрыть все карты через 5 секунд
     function hideAll() {
-        if (cards){
-            const itemArray = Array.from(cards)
-             for (const card of itemArray) {
+        if (cards) {
+            const itemArray = Array.from(cards);
+            for (const card of itemArray) {
                 card.classList.remove("flip");
+            }
         }
-    }        
-        }
+    }
 
     setTimeout(hideAll, 5000);
 
-    //включение таймера исходник, тайпскрипту не нравится 
-  /*  function startTimer() {
-   //     minute  = minute < 10 ? "0" + minute : minute;
-   //     second = second < 10 ? "0" + second : second;
-            interval = setInterval(function () {
-            timer.innerHTML = minute + "." + second;
-            second++;
-    //        second = second < 10 ? "0" + second : second;
-            if (second === 60) {
-                minute++;
-                second = 0;
-   //             minute = minute < 10 ? "0" + minute : minute;
-   //            second = second < 10 ? "0" + second : second;
-            }
-            if (minute === 60) {
-                hour++;
-                minute = 0;
-            }
+    const startTime = Date.now();
+    function startTimer() {
+        interval = setInterval(() => {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+            const minutes = Math.floor(elapsedTime / 60000)
+                .toString()
+                .padStart(2, "0");
+            const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5)
+                .toString()
+                .padStart(2, "0");
+            timer.innerHTML = `${minutes}.${seconds}`;
         }, 1000);
         state = 0;
-    }*/
-    
-    const startTime = Date.now(); 
-    function startTimer() {
-    interval =  setInterval(() => {
-      const currentTime = Date.now();
-      const elapsedTime = currentTime - startTime;
-      const minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
-      const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
-      timer.innerHTML =   `${minutes}.${seconds}`;
-    }, 1000);
-    state = 0;
-}
-    
+    }
+
     //
     setTimeout(startTimer, 5000);
     let lockBoard = false;
     //переворачивание карт
     function flipCard(this: HTMLElement) {
-   
         if (this === firstCard) return;
         this.classList.add("flip");
 
@@ -122,21 +104,20 @@ if (appEl){
             hasFlippedCard = true;
             firstCard = this;
             return;
-        } 
+        }
         secondCard = this;
         lockBoard = true;
         state += 2;
         checkForMatch();
-        
     }
     //сравнение карт
     function checkForMatch() {
         const isMatch = firstCard!.dataset.index === secondCard!.dataset.index;
         if (!isMatch) {
             setTimeout(() => {
-                if (firstCard && secondCard){
-                firstCard!.classList.remove("flip");
-                secondCard!.classList.remove("flip"); 
+                if (firstCard && secondCard) {
+                    firstCard!.classList.remove("flip");
+                    secondCard!.classList.remove("flip");
                 }
                 clearTimeout(setTimeout(startTimer));
                 resetBoard();
@@ -150,7 +131,7 @@ if (appEl){
             if (state === dublicateCardArray.length) {
                 clearTimeout(setTimeout(startTimer));
                 setTimeout(() => {
-                finalPageCeleb();
+                    finalPageCeleb();
                 }, 1000);
             }
         }
@@ -165,8 +146,12 @@ if (appEl){
     const finalPageCeleb = () => {
         const currentTime = Date.now();
         const elapsedTime = currentTime - startTime;
-        const minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
-        const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
+        const minutes = Math.floor(elapsedTime / 60000)
+            .toString()
+            .padStart(2, "0");
+        const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5)
+            .toString()
+            .padStart(2, "0");
         const duration = `${minutes}` + ":" + `${seconds}`;
         const page = `
             <div class = "conteiner-module">
@@ -187,11 +172,14 @@ if (appEl){
     const finalPageDead = () => {
         const currentTime = Date.now();
         const elapsedTime = currentTime - startTime;
-        const minutes = Math.floor(elapsedTime / 60000).toString().padStart(2, "0");
-        const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5).toString().padStart(2, "0");
+        const minutes = Math.floor(elapsedTime / 60000)
+            .toString()
+            .padStart(2, "0");
+        const seconds = (Math.floor((elapsedTime % 60000) / 1000) - 5)
+            .toString()
+            .padStart(2, "0");
         const duration = `${minutes}` + ":" + `${seconds}`;
-        const page =
-            ` <div class = "conteiner-module">"
+        const page = ` <div class = "conteiner-module">"
             <div class = "content modal" > 
             <img  class = "img" src = "./static/dead.png">
             <h1 class = "content-title">Вы проиграли!</h1>
